@@ -1,7 +1,6 @@
-require File.expand_path('../connection', __FILE__)
-require File.expand_path('../request', __FILE__)
-require File.expand_path('../authentication', __FILE__)
-
+require File.expand_path('connection', __dir__)
+require File.expand_path('request', __dir__)
+require File.expand_path('authentication', __dir__)
 
 module CloudAlly
   # @private
@@ -10,7 +9,7 @@ module CloudAlly
     attr_accessor *Configuration::VALID_OPTIONS_KEYS
 
     # Creates a new API
-    def initialize(options={})
+    def initialize(options = {})
       options = CloudAlly.options.merge(options)
       Configuration::VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])
