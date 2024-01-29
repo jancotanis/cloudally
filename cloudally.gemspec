@@ -9,8 +9,7 @@ Gem::Specification.new do |s|
   s.email       = "gems@jancology.com"
   s.license     = "MIT"
 
-
-  s.summary     = %q{A Ruby wrapper for the CloudAlly Partner Portal REST APIs (readonly)}
+  s.summary     = "A Ruby wrapper for the CloudAlly Partner Portal REST APIs (readonly)"
   s.homepage    = "https://rubygems.org/gems/cloudally"
 
   s.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
@@ -33,5 +32,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency "dotenv"
   s.add_development_dependency "minitest"
   s.add_development_dependency "rubocop"
-
 end
