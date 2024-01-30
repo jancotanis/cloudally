@@ -74,8 +74,7 @@ module CloudAlly
       self.username           = nil
       self.password           = nil
 
-      self.logger             = DEFAULT_LOGGER
-
+      self.logger             = nil
       self.connection_options = DEFAULT_CONNECTION_OPTIONS
       self.endpoint           = DEFAULT_ENDPOINT
       self.format             = DEFAULT_FORMAT
