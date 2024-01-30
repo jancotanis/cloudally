@@ -82,7 +82,7 @@ module CloudAlly
         total = data["totalPages"].to_i
         nextPage = data["nextPageToken"]
       end
-      d unless block_given?
+      result unless block_given?
     end
 
     # Perform an HTTP POST request

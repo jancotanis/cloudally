@@ -8,3 +8,6 @@
 
 ## [0.1.2] - 2024-01-30
 -  Correct version faraday library
+
+## [0.1.3] - 2024-01-30
+-  Fix defect in request paging to return all pages when no block is given
