@@ -1,5 +1,3 @@
-require 'minitest/autorun'
-require 'minitest/spec'
 require "test_helper"
 
 describe 'entity' do

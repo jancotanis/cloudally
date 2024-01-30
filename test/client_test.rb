@@ -1,5 +1,3 @@
-require 'minitest/autorun'
-require 'minitest/spec'
 require 'Dotenv'
 require 'logger'
 require "test_helper"
@@ -129,7 +127,36 @@ describe 'client' do
     bills = @client.partner_bills
     respond_to_template(template, bills.first, "bills")
   end
-  it "#5 GET /v1/partners/resellers get_resellers list" do
+  it "#5 GET /v1/partners/users getUsersByPartner" do
+    template =
+    {
+      "id": "string",
+      "name": "string",
+      "email": "string",
+      "status": "ACTIVE",
+      "date": 0,
+      "dailyReport": true,
+      "region": "US_EST",
+      "discount": 0,
+      "reportEmails": [
+        "string"
+      ],
+      "partnerID": "string",
+      "currency": "USD",
+      "customStorage": {
+        "type": "S3"
+      },
+      "ms365EnterprisePlan": true,
+      "gsuiteEnterprisePlan": true
+    }
+
+    users = @client.partner_users
+    assert !users.first.customStorage.type, "user.customStorage.type" if users.first.customStorage
+    assert !users.first.reportEmails.first, "user.reportEmails[]" if users.first.reportEmails.length > 0
+    respond_to_template(template, users.first, "users")
+  end
+=begin not authorised to get for resellers list
+  it "#6 GET /v1/partners/resellers get_resellers_list" do
     template =
       {
         "resellerName": "string",
@@ -155,4 +182,5 @@ describe 'client' do
     resellers = @client.partner_resellers
     respond_to_template(template, resellers.first, "resellers")
   end
+=end
 end

@@ -1,5 +1,3 @@
-require 'minitest/autorun'
-require 'minitest/spec'
 require 'Dotenv'
 require 'logger'
 require "test_helper"
