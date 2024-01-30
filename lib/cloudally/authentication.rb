@@ -1,5 +1,5 @@
 module CloudAlly
-  # Defines HTTP request methods
+  # Deals with authentication flow and stores it within global configuration
   module Authentication
     # Authorize to the CloudAlly portal and return access_token
     def auth(options = {})
@@ -40,10 +40,10 @@ module CloudAlly
     def process_token(response)
       at = nil
       CloudAlly.configure do |config|
-        at = config.access_token	= response["accessToken"]
-        config.token_type	        = response["tokenType"]
-        config.refresh_token		= response["refreshToken"]
-        config.token_expires		= response["expiresIn"]
+        at = config.access_token = response["accessToken"]
+        config.token_type        = response["tokenType"]
+        config.refresh_token     = response["refreshToken"]
+        config.token_expires     = response["expiresIn"]
       end
       raise StandardError.new 'Could not find valid accessToken; response ' + response.to_s if at == '' || at.nil?
 
