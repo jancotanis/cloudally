@@ -41,4 +41,29 @@ describe 'entity' do
     assert value(e.backupStatus.first.subSource).must_equal h[:backupStatus].first[:subSource],
                                                             "e.backupStatus.first.subSource"
   end
+  it "#4 to_json" do
+    h = {
+      "userId": "string",
+      "taskId": "string",
+      "source": "GMAIL",
+      "entityName": "string",
+      "lastBackupDate": "string",
+      "lastBackupAttemptDate": "string",
+      "backupDuration": 0,
+      "size": 0,
+      "backupStatus": [
+        {
+          "subSource": "string",
+          "status": "string",
+          "error": "string",
+          "errFAQLink": "string"
+        }
+      ]
+    }
+
+    e = CloudAlly::Request::Entity.new(h)
+    assert value(e.to_json).must_equal h.to_json, "e.to_json"
+    deep = e.backupStatus
+    assert value(deep.to_json).must_equal h[:backupStatus].to_json, "e.to_json"
+  end
 end

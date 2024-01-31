@@ -8,6 +8,7 @@ module CloudAlly
       attr_reader :attributes
 
       def initialize attributes
+        @_raw = attributes
         @attributes = attributes.clone.transform_keys(&:to_s)
       end
 
@@ -44,6 +45,10 @@ module CloudAlly
         else
           super
         end
+      end
+
+      def to_json options={}
+        @_raw.to_json
       end
     end
 

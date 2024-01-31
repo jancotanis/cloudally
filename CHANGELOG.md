@@ -11,3 +11,6 @@
 
 ## [0.1.3] - 2024-01-30
 -  Fix defect in request paging to return all pages when no block is given
+
+## [0.2.0] - 2024-01-30
+-  json return for entities
