@@ -5,12 +5,6 @@ require 'test_helper'
 REQUEST_LOGGER = 'request_test.log'
 File.delete(REQUEST_LOGGER) if File.exist?(REQUEST_LOGGER)
 
-def respond_to_template(template, object, class_name)
-  template.keys do |k|
-    assert  object.respond_to?(k.to_sym), "method #{class_name}.#{k}"
-  end
-end
-
 describe 'client' do
   before do
     Dotenv.load
