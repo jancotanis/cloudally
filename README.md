@@ -33,8 +33,9 @@ CloudAlly.configure do |config|
 	config.password = ENV["CLOUDALLY_PASSWORD"]
 	config.logger = Logger.new( "./cloudally-http.log" )
 end
-CloudAlly.partner_login
+ 
 client = CloudAlly.client
+client.partner_login
 ```
 
 ## Resources

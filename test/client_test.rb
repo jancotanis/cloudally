@@ -14,6 +14,7 @@ end
 describe 'client' do
   before do
     Dotenv.load
+    CloudAlly.reset
     CloudAlly.configure do |config|
       config.client_id = ENV["CLOUDALLY_CLIENT_ID"]
       config.client_secret = ENV["CLOUDALLY_CLIENT_SECRET"]
@@ -21,8 +22,8 @@ describe 'client' do
       config.password = ENV["CLOUDALLY_PASSWORD"]
       config.logger = Logger.new(CLIENT_LOGGER)
     end
-    CloudAlly.partner_login
-    @client = CloudAlly.client
+    @client = CloudAlly.client()
+    @client.partner_login
   end
 
   it "#1 GET /v1/partners getPartner" do
@@ -155,32 +156,4 @@ describe 'client' do
     assert !users.first.reportEmails.first, "user.reportEmails[]" if users.first.reportEmails.length > 0
     respond_to_template(template, users.first, "users")
   end
-=begin not authorised to get for resellers list
-  it "#6 GET /v1/partners/resellers get_resellers_list" do
-    template =
-      {
-        "resellerName": "string",
-        "contactName": "string",
-        "resellerEmail": "string",
-        "partnerId": "string",
-        "region": "string",
-        "countryCode": "string",
-        "customStorage": {
-          "type": "S3"
-        },
-        "waiveSharedMailboxes": true,
-        "whiteLabel": true,
-        "notificationSettings": {
-          "provideType": "LINK",
-          "reportFreq": "WEEKLY",
-          "reportDay": "MONDAY",
-          "sendSummaryReport": true,
-          "failureOnlyReport": true
-        }
-      }
-
-    resellers = @client.partner_resellers
-    respond_to_template(template, resellers.first, "resellers")
-  end
-=end
 end

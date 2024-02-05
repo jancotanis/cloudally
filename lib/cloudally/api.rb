@@ -1,17 +1,16 @@
-require File.expand_path('connection', __dir__)
-require File.expand_path('request', __dir__)
+require "wrapi"
 require File.expand_path('authentication', __dir__)
 
 module CloudAlly
   # @private
   class API
     # @private
-    attr_accessor *Configuration::VALID_OPTIONS_KEYS
+    attr_accessor *WrAPI::Configuration::VALID_OPTIONS_KEYS
 
     # Creates a new API
     def initialize(options = {})
       options = CloudAlly.options.merge(options)
-      Configuration::VALID_OPTIONS_KEYS.each do |key|
+      WrAPI::Configuration::VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])
       end
     end
@@ -24,8 +23,9 @@ module CloudAlly
       conf
     end
 
-    include Connection
-    include Request
+    include WrAPI::Connection
+    include WrAPI::Request
+    include WrAPI::Authentication
     include Authentication
   end
 end

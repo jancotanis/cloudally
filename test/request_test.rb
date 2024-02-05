@@ -15,8 +15,8 @@ describe 'client' do
       config.password = ENV["CLOUDALLY_PASSWORD"]
       config.logger = Logger.new(REQUEST_LOGGER)
     end
-    CloudAlly.partner_login
     @client = CloudAlly.client
+    @client.partner_login
   end
 
   it "#1 GET paging/count" do
