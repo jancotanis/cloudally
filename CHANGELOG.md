@@ -14,3 +14,6 @@
 
 ## [0.2.0] - 2024-01-30
 -  json return for entities
+
+## [0.2.1] - 2024-01-30
+-  use wrapi gem
