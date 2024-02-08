@@ -17,3 +17,7 @@
 
 ## [0.2.1] - 2024-01-30
 -  use wrapi gem
+
+## [0.2.2] - 2024-02-08
+-  updated wrapi pagination
+

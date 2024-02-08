@@ -22,14 +22,14 @@ describe 'client' do
   it "#1 GET paging/count" do
     # get response and check total records
     url = 'partners/status'
-    result = @client.get(url,{"pageSize":CloudAlly.page_size})
+    result = @client.get_paged(url,{"pageSize":CloudAlly.page_size})
     status = @client.partner_status
 
-    assert value(status.count).must_equal result.total , "number of records"
+    assert value(status.count).must_equal result.count , "number of records"
     pages = 0
-    @client.get_paged(url) do |batch|
+    @client.get_paged(url) do |data|
       pages += 1
     end
-    assert value(pages).must_equal result.totalPages, "number of batches"
+    assert value(pages).must_equal (1.0 * result.count/CloudAlly.page_size).ceil, "number of batches"
   end
 end
