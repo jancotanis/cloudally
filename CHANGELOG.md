@@ -21,3 +21,6 @@
 ## [0.2.2] - 2024-02-08
 -  updated wrapi pagination
 
+## [0.3.0] - 2024-02-21
+-  Harmonization exceptions
+

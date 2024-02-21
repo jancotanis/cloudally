@@ -9,10 +9,11 @@ describe 'auth' do
   before do
     Dotenv.load
     CloudAlly.reset
+    CloudAlly.logger = Logger.new(AUTH_LOGGER)
   end
   it "#1 not logged in" do
-    c = CloudAlly.client({ logger: Logger.new(AUTH_LOGGER) })
-    assert_raises Faraday::BadRequestError do
+    c = CloudAlly.client()
+    assert_raises CloudAlly::ConfigurationError do
       c.partner_login
     end
   end
@@ -34,11 +35,11 @@ describe 'auth' do
       config.password = "doe"
     end
     c = CloudAlly.client()
-    assert_raises Exception do
+    assert_raises CloudAlly::AuthenticationError do
       c.partner_login
     end
     c = CloudAlly.client()
-    assert_raises Exception do
+    assert_raises CloudAlly::AuthenticationError do
       c.login
     end
   end
