@@ -1,4 +1,7 @@
 # Cloudally API
+[![Version](https://img.shields.io/gem/v/cloudally.svg)](https://rubygems.org/gems/cloudally)
+[![Maintainability](https://api.codeclimate.com/v1/badges/fc344d88ac45777b3168/maintainability)](https://codeclimate.com/github/jancotanis/cloudally/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/fc344d88ac45777b3168/test_coverage)](https://codeclimate.com/github/jancotanis/cloudally/test_coverage)
 
 
 This is a wrapper for the CloudAlly portal API v1. You can see the API endpoints here https://api.cloudally.com/documentation
