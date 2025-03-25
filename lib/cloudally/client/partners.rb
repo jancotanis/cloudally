@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CloudAlly
   class Client
     # Defines methods related to partners
@@ -6,7 +8,7 @@ module CloudAlly
       #
       # @see https://api.cloudally.com/documentation#/Partner%20Portal
       def partners
-        get("partners")
+        get('partners')
       end
       alias get_partner partners
 
@@ -14,14 +16,14 @@ module CloudAlly
       #
       # @see https://api.cloudally.com/documentation#/Partner%20Portal
       def partner_bills
-        get_paged("partners/bills")
+        get_paged('partners/bills')
       end
 
       # Get Partner bills.
       #
       # @see https://api.cloudally.com/documentation#/Partner%20Portal
       def partner_status
-        get_paged("partners/status")
+        get_paged('partners/status')
       end
       alias get_status_by_partner partner_status
 
@@ -29,7 +31,7 @@ module CloudAlly
       #
       # @see https://api.cloudally.com/documentation#/Partner%20Portal
       def partner_tasks
-        get_paged("partners/tasks")
+        get_paged('partners/tasks')
       end
 
       # Get Partner resellers.
@@ -39,7 +41,7 @@ module CloudAlly
         if partner_id
           get_paged("partners/resellers/#{partner_id}")
         else
-          get_paged("partners/resellers")
+          get_paged('partners/resellers')
         end
       end
 
@@ -61,7 +63,7 @@ module CloudAlly
       #
       # @see https://api.cloudally.com/documentation#/Partner%20Portal
       def partner_users
-        get_paged("partners/users")
+        get_paged('partners/users')
       end
       alias get_users_by_partner partner_users
     end

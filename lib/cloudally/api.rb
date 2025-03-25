@@ -1,10 +1,10 @@
-require "wrapi"
+# frozen_string_literal: true
+
+require 'wrapi'
 require File.expand_path('authentication', __dir__)
 
 module CloudAlly
-  # @private
   class API
-    # @private
     attr_accessor *WrAPI::Configuration::VALID_OPTIONS_KEYS
 
     # Creates a new API

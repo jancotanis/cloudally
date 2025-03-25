@@ -1,13 +1,13 @@
-require 'Dotenv'
+# frozen_string_literal: true
+
 require 'logger'
-require "test_helper"
+require 'test_helper'
 
 AUTH_LOGGER = "auth_test.log"
 File.delete(AUTH_LOGGER) if File.exist?(AUTH_LOGGER)
 
 describe 'auth' do
   before do
-    Dotenv.load
     CloudAlly.reset
     CloudAlly.logger = Logger.new(AUTH_LOGGER)
   end

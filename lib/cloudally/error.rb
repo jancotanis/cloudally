@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 module CloudAlly
-	
   # Generic error to be able to rescue all CloudAlly errors
   class CloudAllyError < StandardError; end
 
